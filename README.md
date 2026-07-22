@@ -65,21 +65,30 @@ python -m http.server 8000
 
 ## Email list & admin portal
 
+Backed by a real database — a Node/Express API on **Railway** with a **Postgres**
+database. All signups are stored centrally, so the list is complete no matter
+where or when people join.
+
 - **Public signup:** the "Join Our Email List" section near the bottom of the
-  home page. Submissions are relayed to `historyfamilyandme@outlook.com` via
-  FormSubmit (free, no account).
-  **One-time setup:** the first submission triggers an activation email to that
-  inbox — click the "Activate" link in it once and all future signups flow in.
-- **Admin portal:** `admin.html` (e.g. `https://<site>/admin.html`). Passcode is
-  set at the top of `admin.js` (`family2026` — change it there). It shows the
-  subscriber list with stats, add/import/export CSV, copy-all-emails, and an
-  "Email everyone" button that opens a pre-addressed BCC draft.
-- **How the list stays complete:** signups arrive as emails in the Outlook
-  inbox; paste them into the admin portal's Import box to keep the master list.
-  Signups made in the same browser as the portal are added automatically.
-- **Note:** the portal stores its list in that browser's localStorage. The
-  passcode is a light client-side gate (the page is unlisted and noindexed) —
-  when the list grows, graduate to Mailchimp/MailerLite by exporting the CSV.
+  home page posts to the API's `/api/subscribe` endpoint.
+- **Admin portal:** `admin.html` (e.g. `https://<site>/admin.html`). The passcode
+  you enter is the API's `ADMIN_TOKEN`. It shows the live subscriber list with
+  stats, add/import/export CSV, copy-all-emails, and an "Email everyone" button
+  that opens a pre-addressed BCC draft.
+- **API code:** lives in `api/` (`server.js`, `package.json`) and is deployed to
+  Railway. Endpoints:
+  - `POST /api/subscribe` — public signup (validated, rate-limited, dedup).
+  - `GET /api/subscribers` — admin only (Bearer `ADMIN_TOKEN`).
+  - `POST /api/subscribers` — admin add.
+  - `DELETE /api/subscribers/:email` — admin remove.
+- **Config (Railway service variables):**
+  - `DATABASE_URL` — Postgres connection (set automatically to the internal DB).
+  - `ADMIN_TOKEN` — the admin portal passcode.
+  - `ALLOWED_ORIGINS` — comma-separated site origins allowed to call the API.
+- **API base URL** is set at the top of `script.js` and `admin.js`
+  (`HFM_API`). Update it there if the Railway domain ever changes.
+- **Redeploying the API:** from the `api/` folder, `railway up --service api`
+  (with a Railway project token in `RAILWAY_TOKEN`).
 
 ## Customization quick reference
 

@@ -1,23 +1,34 @@
 /* ===========================================================
-   Admin Portal — subscriber list manager
-   Data lives in this browser's localStorage under "hfm-subscribers".
+   Admin Portal — subscriber list manager (Railway API backed)
+   The passcode entered at the gate is the API admin token.
    =========================================================== */
 (function () {
   "use strict";
 
-  var PASSCODE = "family2026"; // shared with Anna — change here anytime
-  var STORAGE_KEY = "hfm-subscribers";
-  var SESSION_KEY = "hfm-admin-unlocked";
+  var HFM_API = "https://api-production-89e0.up.railway.app";
+  var SESSION_KEY = "hfm-admin-token";
 
-  /* ---------- State ---------- */
-  function load() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
-    catch (e) { return []; }
+  var subs = []; // current list, loaded from the API
+  var token = sessionStorage.getItem(SESSION_KEY) || "";
+
+  /* ---------- API helpers ---------- */
+  function api(path, options) {
+    options = options || {};
+    options.headers = Object.assign(
+      { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      options.headers || {}
+    );
+    return fetch(HFM_API + path, options).then(function (res) {
+      if (res.status === 401) throw new Error("unauthorized");
+      return res.json();
+    });
   }
-  function save(list) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+
+  function loadSubscribers() {
+    return api("/api/subscribers").then(function (data) {
+      subs = data.subscribers || [];
+    });
   }
-  var subs = load();
 
   /* ---------- Gate ---------- */
   var gate = document.getElementById("gate");
@@ -31,18 +42,29 @@
     render();
   }
 
-  if (sessionStorage.getItem(SESSION_KEY) === "1") unlock();
+  function tryUnlock(code) {
+    token = code;
+    gateErr.textContent = "";
+    return loadSubscribers()
+      .then(function () {
+        sessionStorage.setItem(SESSION_KEY, token);
+        unlock();
+      })
+      .catch(function (err) {
+        token = "";
+        sessionStorage.removeItem(SESSION_KEY);
+        gateErr.textContent =
+          err.message === "unauthorized"
+            ? "That passcode isn't right — try again."
+            : "Couldn't reach the server — check your connection and try again.";
+      });
+  }
+
+  if (token) tryUnlock(token);
 
   gateForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    var code = document.getElementById("gateCode").value;
-    if (code === PASSCODE) {
-      sessionStorage.setItem(SESSION_KEY, "1");
-      gateErr.textContent = "";
-      unlock();
-    } else {
-      gateErr.textContent = "That passcode isn't right — try again.";
-    }
+    tryUnlock(document.getElementById("gateCode").value.trim());
   });
 
   document.getElementById("lockBtn").addEventListener("click", function () {
@@ -68,7 +90,6 @@
       return !q || (s.name || "").toLowerCase().indexOf(q) !== -1 || s.email.toLowerCase().indexOf(q) !== -1;
     });
 
-    // stats
     document.getElementById("statTotal").textContent = subs.length;
     var now = new Date();
     var monthPrefix = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
@@ -76,7 +97,6 @@
       return (s.date || "").indexOf(monthPrefix) === 0;
     }).length;
 
-    // table
     if (subs.length === 0) {
       emptyEl.hidden = false;
       tableEl.hidden = true;
@@ -86,7 +106,7 @@
     tableEl.hidden = false;
 
     rowsEl.innerHTML = view
-      .map(function (s, i) {
+      .map(function (s) {
         var srcClass = s.source === "website" ? "" : " manual";
         return (
           "<tr>" +
@@ -111,37 +131,38 @@
     if (!btn) return;
     var email = btn.getAttribute("data-email");
     if (!confirm("Remove " + email + " from the list?")) return;
-    subs = subs.filter(function (s) { return s.email !== email; });
-    save(subs);
-    render();
+    api("/api/subscribers/" + encodeURIComponent(email), { method: "DELETE" })
+      .then(loadSubscribers)
+      .then(render)
+      .catch(function () { alert("Couldn't remove that subscriber — please try again."); });
   });
 
   /* ---------- Add ---------- */
-  function addSubscriber(name, email, source) {
-    email = (email || "").trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false;
-    if (subs.some(function (s) { return s.email.toLowerCase() === email.toLowerCase(); })) return false;
-    subs.push({
-      name: (name || "").trim(),
-      email: email,
-      date: new Date().toISOString().slice(0, 10),
-      source: source || "manual"
+  function addSubscriber(name, email) {
+    return api("/api/subscribers", {
+      method: "POST",
+      body: JSON.stringify({ name: name, email: email })
     });
-    return true;
   }
 
   document.getElementById("addForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var nameEl = document.getElementById("addName");
     var emailEl = document.getElementById("addEmail");
-    if (addSubscriber(nameEl.value, emailEl.value, "manual")) {
-      save(subs);
-      nameEl.value = "";
-      emailEl.value = "";
-      render();
-    } else {
-      alert("Please enter a valid email address that isn't already on the list.");
+    var email = emailEl.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
     }
+    addSubscriber(nameEl.value.trim(), email)
+      .then(function (data) {
+        if (data.duplicate) alert(email + " is already on the list.");
+        nameEl.value = "";
+        emailEl.value = "";
+        return loadSubscribers();
+      })
+      .then(render)
+      .catch(function () { alert("Couldn't add that subscriber — please try again."); });
   });
 
   /* ---------- Import ---------- */
@@ -156,25 +177,36 @@
   });
   document.getElementById("importGo").addEventListener("click", function () {
     var lines = document.getElementById("importText").value.split(/\r?\n/);
-    var added = 0, skipped = 0;
+    var entries = [];
     lines.forEach(function (line) {
       line = line.trim();
       if (!line) return;
-      var name = "", email = "";
-      // formats: "email" | "name, email" | "email, name" | CSV row
       var parts = line.split(",").map(function (p) { return p.trim().replace(/^"|"$/g, ""); });
       var emailPart = parts.find(function (p) { return p.indexOf("@") !== -1; });
-      if (!emailPart) { skipped++; return; }
-      email = emailPart;
-      name = parts.filter(function (p) { return p !== emailPart; }).join(" ").trim();
-      if (addSubscriber(name, email, "manual")) added++;
-      else skipped++;
+      if (!emailPart) return;
+      entries.push({
+        email: emailPart,
+        name: parts.filter(function (p) { return p !== emailPart; }).join(" ").trim()
+      });
     });
-    save(subs);
-    render();
-    document.getElementById("importResult").textContent =
-      "Added " + added + (skipped ? " \u00b7 skipped " + skipped + " (invalid or duplicate)" : "");
-    if (added > 0) document.getElementById("importText").value = "";
+
+    var added = 0, skipped = lines.filter(function (l) { return l.trim(); }).length - entries.length;
+    var chain = Promise.resolve();
+    entries.forEach(function (entry) {
+      chain = chain.then(function () {
+        return addSubscriber(entry.name, entry.email)
+          .then(function (data) { if (data.duplicate) skipped++; else added++; })
+          .catch(function () { skipped++; });
+      });
+    });
+    chain
+      .then(loadSubscribers)
+      .then(function () {
+        render();
+        document.getElementById("importResult").textContent =
+          "Added " + added + (skipped ? " \u00b7 skipped " + skipped + " (invalid or duplicate)" : "");
+        if (added > 0) document.getElementById("importText").value = "";
+      });
   });
 
   /* ---------- Export CSV ---------- */

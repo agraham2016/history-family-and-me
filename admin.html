@@ -73,7 +73,6 @@
         <h2>Import subscribers</h2>
         <p>
           Paste one subscriber per line &mdash; either just an email, or <code>name, email</code>.
-          Signups that arrived in the Outlook inbox can be copied in here.
         </p>
         <textarea id="importText" rows="6" placeholder="Jane Doe, jane@example.com&#10;sam@example.com"></textarea>
         <div class="import-actions">
@@ -90,11 +89,10 @@
           <input type="search" id="searchBox" placeholder="Search name or email&hellip;" />
         </div>
         <div class="empty" id="emptyState">
-          <p><strong>No subscribers here yet.</strong></p>
+          <p><strong>No subscribers yet.</strong></p>
           <p>
-            Website signups are delivered to <strong>historyfamilyandme@outlook.com</strong>.
-            As they come in, add them here (or use Import) so this list stays the master copy.
-            Signups made in this same browser appear automatically.
+            When someone joins the email list on the website, they appear here automatically.
+            You can also add people manually or import a batch above.
           </p>
         </div>
         <table class="sub-table" id="subTable" hidden>
@@ -106,9 +104,8 @@
       </section>
 
       <p class="dash-note">
-        Website signups are emailed to the business inbox by the signup form. This page keeps the
-        master list in this browser and can export it anytime (CSV works with Outlook, Mailchimp,
-        and other tools).
+        All signups are stored in the central database, so this list is complete no matter where
+        or when people join. Export a CSV anytime (works with Outlook, Mailchimp, and other tools).
       </p>
     </main>
   </div>
