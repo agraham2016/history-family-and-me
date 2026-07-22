@@ -289,6 +289,69 @@ img { max-width: 100%; display: block; }
 }
 .research-attrib { color: #c8d0e0; font-size: 1.05rem; margin: 0; }
 
+/* ---------- About / My Story ---------- */
+.about { padding: clamp(3rem, 7vw, 6rem) 0; background: var(--paper); border-block: 1px solid var(--line); }
+.about-inner {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.about-media { text-align: center; }
+.about-photo-ph {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  border: 6px solid var(--paper);
+  outline: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--cream-2), #e7dcc8);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  color: var(--gold);
+  transform: rotate(-1.5deg);
+}
+.about-photo-ph span {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 6px solid var(--paper);
+  outline: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  transform: rotate(-1.5deg);
+}
+.about-name { font-family: var(--serif); font-weight: 700; font-size: 1.6rem; margin: 1.3rem 0 0; }
+.about-role { color: var(--ink-soft); font-size: .95rem; margin: .2rem 0 0; }
+
+.about-copy .section-kicker { display: block; margin-bottom: .5rem; }
+.about-copy h2 { font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 1.1rem; }
+.about-copy p { color: var(--ink-soft); font-size: 1.08rem; }
+.about-copy em { font-style: italic; color: var(--burgundy); }
+
+.about-stats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: 1.6rem 0 0;
+  margin: 1.8rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.about-stats li { display: flex; flex-direction: column; }
+.stat-num { font-family: var(--serif); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--burgundy); }
+.stat-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); font-weight: 600; margin-top: .35rem; }
+
 /* ---------- Resources ---------- */
 .resources { padding: clamp(3rem, 7vw, 6rem) 0; }
 .resources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px; margin-inline: auto; }
@@ -374,6 +437,9 @@ img { max-width: 100%; display: block; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-media { max-width: 520px; margin-top: 1rem; }
   .hero-media img { transform: none; }
+
+  .about-inner { grid-template-columns: 1fr; }
+  .about-media { max-width: 320px; margin: 0 auto; }
 
   .image-band { background-attachment: scroll; }
 
