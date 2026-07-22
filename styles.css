@@ -299,8 +299,9 @@ img { max-width: 100%; display: block; }
 .footer-brand .brand-name { color: #fff; font-size: 1.4rem; }
 .footer-tag { font-family: var(--serif); font-style: italic; color: var(--gold-soft); margin-top: .6rem; }
 .footer-contact p { margin: 0 0 .3rem; color: #aab3c5; }
-.footer-email { color: #fff; font-weight: 600; }
-.footer-email:hover { color: var(--gold-soft); }
+.footer-email, .footer-phone { display: block; color: #fff; font-weight: 600; }
+.footer-phone { margin-top: .35rem; }
+.footer-email:hover, .footer-phone:hover { color: var(--gold-soft); }
 .footer-bottom { padding-top: 1.5rem; }
 .footer-bottom p { margin: 0; font-size: .9rem; color: #8b93a7; }
 

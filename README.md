@@ -47,8 +47,9 @@ python -m http.server 8000
 ## Customization quick reference
 
 - **Colors & fonts:** edit the CSS variables at the top of `styles.css` (`:root`).
-- **Contact email:** update the `mailto:` link in the footer of `index.html`
-  (currently a placeholder: `hello@historyfamilyandme.com`).
+- **Contact info:** the footer of `index.html` holds the `mailto:` email
+  (`historyfamilyandme@outlook.com`) and the `tel:` phone number
+  (`(480) 283-4261`).
 - **Logo:** a custom "tree of life" emblem lives at `assets/logo.svg` (used in the
   header, footer, and as the browser favicon). It's a scalable vector, so it stays
   crisp at any size — edit the colors there or swap the file to rebrand.
