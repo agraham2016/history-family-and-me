@@ -26,6 +26,9 @@
 
   /* Reveal-on-scroll using IntersectionObserver (graceful fallback) */
   var revealEls = document.querySelectorAll(".reveal");
+  function revealAll() {
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  }
   if ("IntersectionObserver" in window && revealEls.length) {
     var observer = new IntersectionObserver(
       function (entries, obs) {
@@ -39,8 +42,12 @@
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
     revealEls.forEach(function (el) { observer.observe(el); });
+    // Failsafe: never let content stay stuck invisible if the observer misses it.
+    window.addEventListener("load", function () {
+      setTimeout(revealAll, 2000);
+    });
   } else {
-    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+    revealAll();
   }
 
   /* Email list signup — stores subscribers in the central database (Railway API) */
@@ -54,9 +61,9 @@
     joinForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var name = joinForm.name.value.trim();
-      var email = joinForm.email.value.trim();
-      var honey = joinForm._honey.value;
+      var name = document.getElementById("joinName").value.trim();
+      var email = document.getElementById("joinEmail").value.trim();
+      var honey = joinForm.querySelector('input[name="_honey"]').value;
 
       if (honey) return; // bot caught by honeypot
 
