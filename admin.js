@@ -35,6 +35,7 @@
   var dash = document.getElementById("dash");
   var gateForm = document.getElementById("gateForm");
   var gateErr = document.getElementById("gateErr");
+  var gateBtn = gateForm.querySelector('button[type="submit"]');
 
   function unlock() {
     gate.hidden = true;
@@ -44,16 +45,29 @@
 
   function tryUnlock(code, silent) {
     token = code;
-    gateErr.textContent = "";
+    gateErr.style.color = "";
+    if (!silent) {
+      gateErr.style.color = "var(--ink-soft, #667)";
+      gateErr.textContent = "Checking\u2026";
+      if (gateBtn) gateBtn.disabled = true;
+    } else {
+      gateErr.textContent = "";
+    }
     return loadSubscribers()
       .then(function () {
         sessionStorage.setItem(SESSION_KEY, token);
+        if (gateBtn) gateBtn.disabled = false;
         unlock();
       })
       .catch(function (err) {
         token = "";
         sessionStorage.removeItem(SESSION_KEY);
-        if (silent) return; // stale saved login — just show a clean gate
+        if (gateBtn) gateBtn.disabled = false;
+        gateErr.style.color = "";
+        if (silent) {
+          gateErr.textContent = ""; // stale saved login — just show a clean gate
+          return;
+        }
         gateErr.textContent =
           err.message === "unauthorized"
             ? "That passcode isn't right — try again."
