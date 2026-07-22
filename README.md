@@ -63,22 +63,13 @@ python -m http.server 8000
   ```
   and remove the `Coming Soon` tag / `is-coming` class.
 
-## When Anna's photo arrives
-
-- Save it as `assets/anna.jpg` (portrait orientation works best).
-- In `index.html`, find the `about-photo-ph` block in the "My Story" section and
-  replace it with:
-  ```html
-  <img class="about-photo" src="assets/anna.jpg" alt="Portrait of Anna Cronin" />
-  ```
-  (a matching `.about-photo` image style can reuse the framed look).
-
 ## Customization quick reference
 
 - **Colors & fonts:** edit the CSS variables at the top of `styles.css` (`:root`).
 - **Photos:** heritage images live in `assets/` (`hero-heritage.jpg`,
-  `generations.jpg`, `album.jpg`). Swap any file (keep the same name) to change
-  the visual — no code edits needed.
+  `generations.jpg`, `album.jpg`, plus `anna-family.jpg` for the My Story
+  section). Swap any file (keep the same name) to change the visual — no code
+  edits needed.
 - **Contact info:** the footer of `index.html` holds the `mailto:` email
   (`historyfamilyandme@outlook.com`) and the `tel:` phone number
   (`(480) 283-4261`).
