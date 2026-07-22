@@ -397,6 +397,44 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Resources ---------- */
 .resources { padding: clamp(3rem, 7vw, 6rem) 0; }
+.featured-lesson {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(500px 260px at 100% 0%, rgba(244,196,48,.22), transparent 60%),
+    linear-gradient(135deg, #fff, var(--cream-2));
+  border: 2px solid var(--gold-soft);
+  box-shadow: var(--shadow-md);
+}
+.fl-tag {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--burgundy);
+  background: rgba(192,138,45,.16);
+  padding: .32rem .7rem;
+  border-radius: 999px;
+  margin-bottom: .8rem;
+}
+.featured-lesson h3 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: .5rem; }
+.featured-lesson p { color: var(--ink-soft); margin-bottom: 1.3rem; max-width: 52ch; }
+.fl-btn { font-size: 1.05rem; }
+.fl-art { display: grid; place-items: center; }
+.fl-art svg { filter: drop-shadow(0 10px 16px rgba(122,46,59,.22)); }
+@media (max-width: 700px) {
+  .featured-lesson { grid-template-columns: 1fr; text-align: center; }
+  .featured-lesson p { margin-inline: auto; }
+  .fl-art { order: -1; }
+  .fl-art svg { width: 110px; height: 110px; }
+}
 .resources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px; margin-inline: auto; }
 .resource-card {
   position: relative;

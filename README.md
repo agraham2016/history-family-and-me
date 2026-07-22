@@ -8,12 +8,31 @@ A fast, lightweight static site (plain HTML/CSS/JS — no build step, no depende
 
 ```
 history-family-and-me/
-├── index.html      # Page content and structure
-├── styles.css      # All styling (heritage-inspired palette)
+├── index.html      # Home page content and structure
+├── styles.css      # Home page styling (heritage-inspired palette)
 ├── script.js       # Mobile nav, scroll reveal, footer year
+├── lesson.html     # Lesson 1 dashboard (interactive kids' lesson)
+├── lesson.css      # Lesson page styling (playful, kid-friendly)
+├── lesson.js       # Lesson interactivity (progress, quiz, tree, confetti)
 ├── assets/         # Images / logo / downloadable packet (add here)
 └── README.md
 ```
+
+### The interactive lesson (`lesson.html`)
+
+Linked from the "Lesson 1" banner in the home page's Resources section. It's a
+self-contained, kid-and-family-friendly lesson dashboard featuring:
+
+- **Progress tracking** with a star-points system (saved in the browser via
+  `localStorage`, so progress persists between visits).
+- **Read-aloud narration** of the story (uses the browser's built-in speech).
+- **Build-your-own family tree** — type in names and watch the tree fill in.
+- **A quiz** with instant, encouraging feedback and bonus stars.
+- **A printable "Family Mission"** interview worksheet (the Print button prints
+  just the worksheet).
+- **A reward badge** with a confetti celebration when all activities are done.
+
+To add more lessons, copy `lesson.html` as a starting point.
 
 ## View it locally
 

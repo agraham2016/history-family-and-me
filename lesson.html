@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 1: Meet Your Family Tree — History, Family, and Me</title>
+  <meta name="description" content="A fun, interactive first lesson for kids and families — build your family tree, play a quiz, and become a Family Explorer!" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="lesson.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="lesson-bar">
+    <div class="lesson-bar-inner">
+      <a class="home-link" href="index.html" aria-label="Back to History, Family, and Me home">
+        <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="barGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e6c98a"/><stop offset="1" stop-color="#c08a2d"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="#fff" stroke="url(#barGold)" stroke-width="2.5"/>
+          <g fill="none" stroke="#7a2e3b" stroke-width="1.8" stroke-linecap="round">
+            <path d="M32 40 L32 27"/><path d="M32 28 C 27 25, 23 23, 19 19"/><path d="M32 28 C 37 25, 41 23, 45 19"/>
+            <path d="M32 27 C 29 22, 27 19, 25 14"/><path d="M32 27 C 35 22, 37 19, 39 14"/><path d="M32 27 L32 12"/>
+            <path d="M32 40 C 27 44, 23 46, 19 50"/><path d="M32 40 C 37 44, 41 46, 45 50"/>
+            <path d="M32 40 C 29 45, 27 49, 26 53"/><path d="M32 40 C 35 45, 37 49, 38 53"/><path d="M32 40 L32 52"/>
+          </g>
+          <g fill="url(#barGold)"><circle cx="32" cy="11" r="2.4"/><circle cx="19" cy="18.5" r="2.2"/><circle cx="45" cy="18.5" r="2.2"/><circle cx="24.5" cy="13.5" r="2"/><circle cx="39.5" cy="13.5" r="2"/></g>
+        </svg>
+        <span>Home</span>
+      </a>
+
+      <div class="bar-stats">
+        <div class="stars-chip" title="Stars you've earned">
+          <span class="star-ico" aria-hidden="true">&#9733;</span>
+          <span id="starCount">0</span>
+          <span class="stars-word">stars</span>
+        </div>
+        <button id="resetBtn" class="reset-btn" type="button" title="Start this lesson over">Reset</button>
+      </div>
+    </div>
+    <div class="bar-progress" aria-hidden="true"><span id="barProgressFill"></span></div>
+  </header>
+
+  <main class="lesson">
+    <!-- Lesson hero -->
+    <section class="lesson-hero">
+      <div class="lh-text">
+        <p class="lh-kicker">Lesson 1 &middot; Ages 6&ndash;12 &middot; About 20 minutes</p>
+        <h1>Meet Your Family Tree</h1>
+        <p class="lh-sub">Every family has a story&mdash;and it starts with <strong>YOU</strong>! Let&rsquo;s explore where your story begins.</p>
+        <div class="lh-actions">
+          <a href="#activities" class="btn btn-fun">Let&rsquo;s Go! &darr;</a>
+          <span class="lh-progress-note"><span id="doneCount">0</span> of 5 activities complete</span>
+        </div>
+      </div>
+      <div class="lh-mascot" aria-hidden="true">
+        <!-- Ollie the Owl mascot -->
+        <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="185" rx="46" ry="8" fill="#000" opacity="0.08"/>
+          <path d="M100 40c-38 0-62 26-62 66 0 40 26 74 62 74s62-34 62-74c0-40-24-66-62-66z" fill="#7a2e3b"/>
+          <path d="M100 52c-30 0-50 20-50 52 0 34 22 62 50 62s50-28 50-62c0-32-20-52-50-52z" fill="#9c4453"/>
+          <path d="M62 62c-10-10-8-26-8-26s16 2 24 14z" fill="#7a2e3b"/>
+          <path d="M138 62c10-10 8-26 8-26s-16 2-24 14z" fill="#7a2e3b"/>
+          <circle cx="78" cy="96" r="26" fill="#fff"/>
+          <circle cx="122" cy="96" r="26" fill="#fff"/>
+          <circle cx="80" cy="98" r="12" fill="#1f2a44"/>
+          <circle cx="120" cy="98" r="12" fill="#1f2a44"/>
+          <circle cx="84" cy="94" r="4" fill="#fff"/>
+          <circle cx="124" cy="94" r="4" fill="#fff"/>
+          <path d="M100 108l-10 14h20z" fill="#f4c430"/>
+          <path d="M70 150c8 8 42 8 60 0" fill="none" stroke="#7a2e3b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M84 168l-6 12M116 168l6 12" stroke="#f4c430" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <p class="mascot-name">Hi, I&rsquo;m Ollie! I&rsquo;ll be your guide.</p>
+      </div>
+    </section>
+
+    <!-- Progress path -->
+    <nav class="path" aria-label="Lesson activities">
+      <ol id="pathList">
+        <li data-jump="act-1"><span class="path-dot">1</span><span class="path-label">Watch &amp; Wonder</span></li>
+        <li data-jump="act-2"><span class="path-dot">2</span><span class="path-label">Story Time</span></li>
+        <li data-jump="act-3"><span class="path-dot">3</span><span class="path-label">Build Your Tree</span></li>
+        <li data-jump="act-4"><span class="path-dot">4</span><span class="path-label">Play &amp; Learn</span></li>
+        <li data-jump="act-5"><span class="path-dot">5</span><span class="path-label">Family Mission</span></li>
+        <li data-jump="reward" class="path-reward"><span class="path-dot">&#9733;</span><span class="path-label">Reward!</span></li>
+      </ol>
+    </nav>
+
+    <div id="activities" class="activities">
+
+      <!-- Activity 1: Video -->
+      <article class="activity" id="act-1" data-activity="1">
+        <div class="activity-head">
+          <span class="activity-num">1</span>
+          <h2>Watch &amp; Wonder</h2>
+          <span class="activity-check" aria-hidden="true">&#10003;</span>
+        </div>
+        <p class="activity-intro">Let&rsquo;s warm up! Press play to see how families grow, just like trees. &#127795;</p>
+        <div class="video-box">
+          <button class="video-play" type="button" aria-label="Play video (coming soon)">
+            <span class="play-triangle" aria-hidden="true"></span>
+          </button>
+          <p class="video-caption">Video coming soon &mdash; for now, imagine a tiny seed growing into a mighty tree full of families!</p>
+        </div>
+        <button class="btn btn-done" data-complete="1" type="button">I watched it! &#10003;</button>
+      </article>
+
+      <!-- Activity 2: Story time with read aloud -->
+      <article class="activity" id="act-2" data-activity="2">
+        <div class="activity-head">
+          <span class="activity-num">2</span>
+          <h2>Story Time</h2>
+          <span class="activity-check" aria-hidden="true">&#10003;</span>
+        </div>
+        <div class="story-controls">
+          <button id="readAloud" class="btn btn-read" type="button">
+            <span class="read-ico" aria-hidden="true">&#128266;</span> Read to me
+          </button>
+        </div>
+        <div class="story" id="storyText">
+          <p>A <strong>family tree</strong> is a special picture that shows the people in your family and how you are all connected.</p>
+          <p>You are like a little <strong>seed</strong> at the bottom. Your parents helped you grow. Their parents&mdash;your <strong>grandparents</strong>&mdash;helped them grow. And long, long ago, your <strong>great-grandparents</strong> started your family story!</p>
+          <p>When we learn about the people who came before us, we discover where we get our <strong>courage</strong>, our smiles, and even our favorite foods. That&rsquo;s the magic of family history!</p>
+        </div>
+        <button class="btn btn-done" data-complete="2" type="button">I read the story! &#10003;</button>
+      </article>
+
+      <!-- Activity 3: Build your family tree -->
+      <article class="activity" id="act-3" data-activity="3">
+        <div class="activity-head">
+          <span class="activity-num">3</span>
+          <h2>Build Your Family Tree</h2>
+          <span class="activity-check" aria-hidden="true">&#10003;</span>
+        </div>
+        <p class="activity-intro">Fill in the names to grow your very own family tree. Watch it come to life! &#127793;</p>
+        <div class="tree-builder">
+          <div class="tree-inputs">
+            <label>You<input type="text" data-tree="me" placeholder="Your name" maxlength="20" /></label>
+            <label>Mom<input type="text" data-tree="mom" placeholder="Mom's name" maxlength="20" /></label>
+            <label>Dad<input type="text" data-tree="dad" placeholder="Dad's name" maxlength="20" /></label>
+            <label>Grandma<input type="text" data-tree="gma" placeholder="Grandma's name" maxlength="20" /></label>
+            <label>Grandpa<input type="text" data-tree="gpa" placeholder="Grandpa's name" maxlength="20" /></label>
+          </div>
+          <div class="tree-view" aria-live="polite">
+            <div class="tree-row tree-grandparents">
+              <span class="tree-node" data-node="gma">Grandma</span>
+              <span class="tree-node" data-node="gpa">Grandpa</span>
+            </div>
+            <div class="tree-branches" aria-hidden="true">&#9585;&#9586;</div>
+            <div class="tree-row tree-parents">
+              <span class="tree-node" data-node="mom">Mom</span>
+              <span class="tree-node" data-node="dad">Dad</span>
+            </div>
+            <div class="tree-branches" aria-hidden="true">&#9474;</div>
+            <div class="tree-row tree-me">
+              <span class="tree-node tree-node-me" data-node="me">You</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-done" data-complete="3" type="button">My tree is growing! &#10003;</button>
+      </article>
+
+      <!-- Activity 4: Quiz -->
+      <article class="activity" id="act-4" data-activity="4">
+        <div class="activity-head">
+          <span class="activity-num">4</span>
+          <h2>Play &amp; Learn</h2>
+          <span class="activity-check" aria-hidden="true">&#10003;</span>
+        </div>
+        <p class="activity-intro">Answer these questions to earn bonus stars! There are no wrong tries&mdash;just keep going. &#11088;</p>
+        <div class="quiz" id="quiz">
+          <div class="quiz-q" data-answer="a">
+            <p class="quiz-question">1. Who is at the very bottom of your family tree?</p>
+            <div class="quiz-options">
+              <button type="button" data-choice="a">You!</button>
+              <button type="button" data-choice="b">A dinosaur</button>
+              <button type="button" data-choice="c">A robot</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-answer="b">
+            <p class="quiz-question">2. What do we call your parents&rsquo; parents?</p>
+            <div class="quiz-options">
+              <button type="button" data-choice="a">Cousins</button>
+              <button type="button" data-choice="b">Grandparents</button>
+              <button type="button" data-choice="c">Neighbors</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-answer="c">
+            <p class="quiz-question">3. Why do we learn about our ancestors?</p>
+            <div class="quiz-options">
+              <button type="button" data-choice="a">To do the laundry</button>
+              <button type="button" data-choice="b">To fly to the moon</button>
+              <button type="button" data-choice="c">To find where our courage and stories come from</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-done" data-complete="4" type="button" disabled>Finish the quiz to continue</button>
+      </article>
+
+      <!-- Activity 5: Printable mission -->
+      <article class="activity" id="act-5" data-activity="5">
+        <div class="activity-head">
+          <span class="activity-num">5</span>
+          <h2>Family Mission</h2>
+          <span class="activity-check" aria-hidden="true">&#10003;</span>
+        </div>
+        <p class="activity-intro">
+          Your mission: interview someone older in your family&mdash;a parent, grandparent, aunt, or uncle!
+          Print these questions and write down their answers. &#128221;
+        </p>
+        <div class="mission-sheet" id="missionSheet">
+          <h3>My Family Interview</h3>
+          <ol>
+            <li>What was your favorite game when you were my age?</li>
+            <li>Where did you grow up?</li>
+            <li>What is a story your grandparents told you?</li>
+            <li>What is something you are proud of?</li>
+            <li>What do you hope I remember about our family?</li>
+          </ol>
+          <p class="mission-foot">A History, Family, and Me adventure &#127793;</p>
+        </div>
+        <div class="mission-actions">
+          <button id="printMission" class="btn btn-print" type="button">&#128424; Print my mission</button>
+          <button class="btn btn-done" data-complete="5" type="button">I accepted the mission! &#10003;</button>
+        </div>
+      </article>
+
+      <!-- Reward -->
+      <article class="reward" id="reward" aria-live="polite">
+        <div class="reward-locked" id="rewardLocked">
+          <span class="lock-ico" aria-hidden="true">&#128274;</span>
+          <p>Finish all 5 activities to unlock your reward!</p>
+        </div>
+        <div class="reward-unlocked" id="rewardUnlocked" hidden>
+          <div class="badge">
+            <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Family Explorer badge">
+              <circle cx="60" cy="56" r="44" fill="#f4c430" stroke="#c08a2d" stroke-width="4"/>
+              <circle cx="60" cy="56" r="34" fill="none" stroke="#fff" stroke-width="2" opacity="0.7"/>
+              <path d="M60 34l6 12 13 2-9.5 9 2 13L60 75l-11.5 6 2-13-9.5-9 13-2z" fill="#fff"/>
+              <path d="M40 96l-6 18 26-10 26 10-6-18" fill="#7a2e3b"/>
+            </svg>
+          </div>
+          <h2>You did it! &#127881;</h2>
+          <p class="reward-title">You&rsquo;re an official <strong>Family Explorer</strong>!</p>
+          <p>You learned what a family tree is, built your own, and accepted your first family mission. Your ancestors would be so proud!</p>
+          <div class="reward-actions">
+            <a class="btn btn-fun" href="index.html">Back to Home</a>
+            <span class="next-soon">Lesson 2 coming soon &#128512;</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="lesson.js"></script>
+</body>
+</html>
