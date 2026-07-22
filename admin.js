@@ -42,7 +42,7 @@
     render();
   }
 
-  function tryUnlock(code) {
+  function tryUnlock(code, silent) {
     token = code;
     gateErr.textContent = "";
     return loadSubscribers()
@@ -53,6 +53,7 @@
       .catch(function (err) {
         token = "";
         sessionStorage.removeItem(SESSION_KEY);
+        if (silent) return; // stale saved login — just show a clean gate
         gateErr.textContent =
           err.message === "unauthorized"
             ? "That passcode isn't right — try again."
@@ -60,7 +61,8 @@
       });
   }
 
-  if (token) tryUnlock(token);
+  // Try any saved login silently; if it's stale/wrong, clear it without a scary error.
+  if (token) tryUnlock(token, true);
 
   gateForm.addEventListener("submit", function (e) {
     e.preventDefault();
