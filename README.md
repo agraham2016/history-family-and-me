@@ -47,6 +47,9 @@ python -m http.server 8000
 ## Customization quick reference
 
 - **Colors & fonts:** edit the CSS variables at the top of `styles.css` (`:root`).
+- **Photos:** heritage images live in `assets/` (`hero-heritage.jpg`,
+  `generations.jpg`, `album.jpg`). Swap any file (keep the same name) to change
+  the visual — no code edits needed.
 - **Contact info:** the footer of `index.html` holds the `mailto:` email
   (`historyfamilyandme@outlook.com`) and the `tel:` phone number
   (`(480) 283-4261`).
