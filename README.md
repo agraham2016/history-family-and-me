@@ -63,6 +63,24 @@ python -m http.server 8000
   ```
   and remove the `Coming Soon` tag / `is-coming` class.
 
+## Email list & admin portal
+
+- **Public signup:** the "Join Our Email List" section near the bottom of the
+  home page. Submissions are relayed to `historyfamilyandme@outlook.com` via
+  FormSubmit (free, no account).
+  **One-time setup:** the first submission triggers an activation email to that
+  inbox — click the "Activate" link in it once and all future signups flow in.
+- **Admin portal:** `admin.html` (e.g. `https://<site>/admin.html`). Passcode is
+  set at the top of `admin.js` (`family2026` — change it there). It shows the
+  subscriber list with stats, add/import/export CSV, copy-all-emails, and an
+  "Email everyone" button that opens a pre-addressed BCC draft.
+- **How the list stays complete:** signups arrive as emails in the Outlook
+  inbox; paste them into the admin portal's Import box to keep the master list.
+  Signups made in the same browser as the portal are added automatically.
+- **Note:** the portal stores its list in that browser's localStorage. The
+  passcode is a light client-side gate (the page is unlisted and noindexed) —
+  when the list grows, graduate to Mailchimp/MailerLite by exporting the CSV.
+
 ## Customization quick reference
 
 - **Colors & fonts:** edit the CSS variables at the top of `styles.css` (`:root`).

@@ -269,7 +269,7 @@
         </div>
         <p class="soon-note reveal">
           Want to be the first to know when they launch?
-          <a href="mailto:historyfamilyandme@outlook.com?subject=Notify%20me%20about%20courses%20and%20lessons">Get in touch to stay in the loop &rarr;</a>
+          <a href="#join">Join our email list &rarr;</a>
         </p>
       </div>
     </section>
@@ -342,9 +342,33 @@
           generations to come.
         </p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="#contact">Get in Touch</a>
+          <a class="btn btn-primary" href="#join">Join Our Email List</a>
           <a class="btn btn-ghost-dark" href="https://www.familysearch.org" target="_blank" rel="noopener">Explore FamilySearch</a>
         </div>
+      </div>
+    </section>
+
+    <!-- Join the email list -->
+    <section class="join" id="join" aria-labelledby="join-heading">
+      <div class="container join-inner reveal">
+        <div class="join-copy">
+          <p class="section-kicker">Stay Connected</p>
+          <h2 id="join-heading">Join Our Email List</h2>
+          <p>
+            Be the first to hear when new lessons, courses, and printable activities launch&mdash;plus
+            occasional stories and tips for your own family history journey.
+          </p>
+        </div>
+        <form id="joinForm" class="join-form" novalidate>
+          <label class="sr-only" for="joinName">Your name</label>
+          <input id="joinName" type="text" name="name" placeholder="Your name" autocomplete="name" maxlength="80" />
+          <label class="sr-only" for="joinEmail">Your email address</label>
+          <input id="joinEmail" type="email" name="email" placeholder="Your email address" autocomplete="email" required maxlength="120" />
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn btn-primary join-btn" type="submit">Join the List</button>
+          <p class="join-msg" id="joinMsg" role="status" aria-live="polite"></p>
+          <p class="join-privacy">No spam, ever &mdash; just family history goodness. Unsubscribe anytime.</p>
+        </form>
       </div>
     </section>
   </main>

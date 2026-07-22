@@ -42,4 +42,75 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
+
+  /* Email list signup — relays to the business inbox via FormSubmit,
+     and mirrors a copy into this browser's local list for the admin page. */
+  var joinForm = document.getElementById("joinForm");
+  if (joinForm) {
+    var joinMsg = document.getElementById("joinMsg");
+    var joinBtn = joinForm.querySelector(".join-btn");
+
+    joinForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var name = joinForm.name.value.trim();
+      var email = joinForm.email.value.trim();
+      var honey = joinForm._honey.value;
+
+      if (honey) return; // bot caught by honeypot
+
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOk) {
+        joinMsg.textContent = "Please enter a valid email address.";
+        joinMsg.className = "join-msg is-error";
+        return;
+      }
+
+      joinBtn.disabled = true;
+      joinBtn.textContent = "Joining\u2026";
+      joinMsg.textContent = "";
+      joinMsg.className = "join-msg";
+
+      fetch("https://formsubmit.co/ajax/historyfamilyandme@outlook.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: name || "(not given)",
+          email: email,
+          _subject: "New email list signup — History, Family, and Me",
+          _template: "table",
+          _captcha: "false"
+        })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && (data.success === "true" || data.success === true)) {
+            joinMsg.textContent = "Welcome to the family! You're on the list. \uD83C\uDF89";
+            joinMsg.className = "join-msg is-success";
+            joinForm.reset();
+            // Mirror into the local subscriber list used by admin.html
+            try {
+              var key = "hfm-subscribers";
+              var list = JSON.parse(localStorage.getItem(key) || "[]");
+              if (!list.some(function (s) { return s.email.toLowerCase() === email.toLowerCase(); })) {
+                list.push({ name: name, email: email, date: new Date().toISOString().slice(0, 10), source: "website" });
+                localStorage.setItem(key, JSON.stringify(list));
+              }
+            } catch (err) { /* storage unavailable — inbox copy still sent */ }
+          } else {
+            throw new Error("relay failed");
+          }
+        })
+        .catch(function () {
+          joinMsg.innerHTML =
+            'Hmm, that didn\u2019t go through. Please try again, or email us at ' +
+            '<a href="mailto:historyfamilyandme@outlook.com">historyfamilyandme@outlook.com</a>.';
+          joinMsg.className = "join-msg is-error";
+        })
+        .finally(function () {
+          joinBtn.disabled = false;
+          joinBtn.textContent = "Join the List";
+        });
+    });
+  }
 })();
