@@ -95,7 +95,7 @@ img { max-width: 100%; display: block; }
   min-height: 68px;
 }
 .brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); }
-.brand-mark { display: inline-flex; width: 40px; height: 40px; }
+.brand-mark { display: block; width: 40px; height: 40px; flex: none; }
 .brand-name { font-family: var(--serif); font-weight: 700; font-size: 1.25rem; letter-spacing: .01em; }
 
 .site-nav { display: flex; align-items: center; gap: 1.6rem; }
@@ -352,7 +352,7 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
 .footer-brand-top { display: inline-flex; align-items: center; gap: .6rem; }
-.footer-mark { width: 34px; height: 34px; }
+.footer-mark { display: block; width: 34px; height: 34px; flex: none; }
 .footer-brand .brand-name { color: #fff; font-size: 1.4rem; }
 .footer-tag { font-family: var(--serif); font-style: italic; color: var(--gold-soft); margin-top: .6rem; }
 .footer-contact p { margin: 0 0 .3rem; color: #aab3c5; }
