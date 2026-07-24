@@ -22,12 +22,12 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; overflow-x: clip; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { margin: 0 0 .5em; font-family: var(--serif); font-weight: 700; line-height: 1.08; color: var(--ink); }
 p { margin: 0 0 1rem; }
 a { color: var(--burgundy); text-decoration: none; }
 a:hover { color: var(--burgundy-dark); }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 .container { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
 .amp { color: var(--gold); font-family: var(--serif); font-style: italic; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -131,10 +131,10 @@ img { display: block; max-width: 100%; }
 
 .about { padding: clamp(4.5rem, 8vw, 7rem) 0; background: var(--paper); }
 .about-inner { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: center; }
-.about-quote { padding: 2.2rem; border: 1px solid var(--gold-soft); background: var(--cream); text-align: center; box-shadow: var(--shadow-sm); }
-.about-quote img { margin: 0 auto 1rem; }
-.about-quote p { color: var(--burgundy); font: italic 600 clamp(1.4rem, 3vw, 1.9rem) var(--serif); }
-.about-quote span { font-size: .9rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.about-quote { margin: 0; padding: 1.4rem 1.4rem 1.8rem; border: 1px solid var(--gold-soft); background: var(--cream); text-align: center; box-shadow: var(--shadow-md); transform: rotate(-1deg); }
+.about-photo { width: 100%; margin-bottom: 1.4rem; border: 4px solid var(--paper); outline: 1px solid var(--line); }
+.about-quote blockquote { margin: 0 0 .9rem; color: var(--burgundy); font: italic 600 clamp(1.15rem, 2.2vw, 1.45rem) var(--serif); line-height: 1.35; }
+.about-quote figcaption { font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .about-copy h2 { font-size: clamp(2.3rem, 4.5vw, 3.5rem); }
 .about-copy p:not(.section-kicker) { color: var(--ink-soft); font-size: 1.06rem; }
 
