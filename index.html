@@ -1,18 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History, Family, and Me — Courage, Strength, and Resilience</title>
-  <meta name="description" content="History, Family, and Me helps you discover courage, strength, and resilience from those who came before. Explore your family history and build a stronger future." />
-  <!-- Draft/preview site — keep out of search engines until launch -->
+  <title>History, Family, and Me — Preserve Your Family Story</title>
+  <meta name="description" content="Discover what is coming from History, Family, and Me: family-history research, memory preservation, family stories, family trees, and courses for every generation." />
   <meta name="robots" content="noindex, nofollow" />
-
-  <!-- Open Graph / social preview -->
   <meta property="og:title" content="History, Family, and Me" />
-  <meta property="og:description" content="Courage, Strength, and Resilience from those who came before!" />
+  <meta property="og:description" content="Preserving your family's story for generations." />
   <meta property="og:type" content="website" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,410 +16,131 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header / Nav -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="brand" href="#top">
-        <svg class="brand-mark" width="40" height="40" viewBox="0 0 64 64" role="img" aria-label="History, Family, and Me tree of life emblem" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="hfmGoldA" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#e6c98a"/>
-              <stop offset="1" stop-color="#c08a2d"/>
-            </linearGradient>
-          </defs>
-          <circle cx="32" cy="32" r="30" fill="#faf6ef" stroke="url(#hfmGoldA)" stroke-width="2.5"/>
-          <circle cx="32" cy="32" r="25.5" fill="none" stroke="#c08a2d" stroke-width="1" opacity="0.45"/>
-          <g fill="none" stroke="#7a2e3b" stroke-width="1.8" stroke-linecap="round">
-            <path d="M32 40 L32 27"/>
-            <path d="M32 28 C 27 25, 23 23, 19 19"/>
-            <path d="M32 28 C 37 25, 41 23, 45 19"/>
-            <path d="M32 27 C 29 22, 27 19, 25 14"/>
-            <path d="M32 27 C 35 22, 37 19, 39 14"/>
-            <path d="M32 27 L32 12"/>
-            <path d="M32 40 C 27 44, 23 46, 19 50"/>
-            <path d="M32 40 C 37 44, 41 46, 45 50"/>
-            <path d="M32 40 C 29 45, 27 49, 26 53"/>
-            <path d="M32 40 C 35 45, 37 49, 38 53"/>
-            <path d="M32 40 L32 52"/>
-          </g>
-          <g fill="url(#hfmGoldA)">
-            <circle cx="32" cy="11" r="2.4"/>
-            <circle cx="19" cy="18.5" r="2.2"/>
-            <circle cx="45" cy="18.5" r="2.2"/>
-            <circle cx="24.5" cy="13.5" r="2"/>
-            <circle cx="39.5" cy="13.5" r="2"/>
-          </g>
-          <path d="M32 33.4c-1.6-1.5-4-2.7-4-4.9a2.1 2.1 0 0 1 4-.9 2.1 2.1 0 0 1 4 .9c0 2.2-2.4 3.4-4 4.9z" fill="#7a2e3b"/>
-        </svg>
-        <span class="brand-text">
-          <span class="brand-name">History, Family, <span class="amp">and</span> Me</span>
-        </span>
+      <a class="brand" href="#top" aria-label="History, Family, and Me home">
+        <img class="brand-mark" src="assets/logo.svg" width="44" height="44" alt="" />
+        <span class="brand-name">History, Family, <span class="amp">and</span> Me</span>
       </a>
-
-      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="#why">Why It Matters</a>
-        <a href="#about">My Story</a>
-        <a href="#coming-soon">Coming Soon</a>
-        <a href="#resources">Resources</a>
-        <a class="nav-cta" href="#start">Start Your Journey</a>
+        <a href="#services">What&rsquo;s Coming</a><a href="#courses">Courses</a><a href="#about">Our Story</a><a href="#resources">Resources</a><a class="nav-cta" href="#join">Stay Connected</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Family History &middot; Heritage &middot; Legacy</p>
-          <h1>History, Family, <span class="amp">and</span> Me</h1>
-          <p class="tagline">Courage, Strength, and Resilience from those who came before!</p>
-          <p class="hero-lede">
-            History is not just a collection of dates and events in textbooks&mdash;it is the
-            living story of our ancestors. By exploring their struggles, triumphs, and everyday
-            challenges, we gain profound insights into our own lives and the world we inhabit today.
-            Understanding where we come from empowers us to navigate our present with greater
-            courage, resilience, and purpose.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#start">Start Your Journey</a>
-            <a class="btn btn-ghost" href="#why">Learn More</a>
-          </div>
+          <p class="eyebrow">Every family has a story</p>
+          <h1 id="hero-heading">Preserving your family&rsquo;s story for generations.</h1>
+          <p class="tagline">Discover the people, places, and moments that made you.</p>
+          <p class="hero-lede">History, Family, and Me is creating thoughtful tools, services, and lessons to help families discover their roots, preserve precious memories, and pass their stories on.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#services">See What&rsquo;s Coming</a><a class="btn btn-ghost" href="#join">Join the Email List</a></div>
+          <p class="hero-note"><span aria-hidden="true">&bull;</span> New resources are in development now.</p>
         </div>
-        <div class="hero-media reveal">
-          <img src="assets/hero-heritage.jpg" width="820" height="615"
-               alt="Vintage family photographs, handwritten letters, a pocket watch, and a leather journal on a wooden table" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Quote -->
-    <section class="quote-feature" aria-labelledby="quote-heading">
-      <div class="container">
-        <h2 id="quote-heading" class="section-kicker">Strength from Ancestors</h2>
-        <figure class="pull-quote reveal">
-          <blockquote>
-            &ldquo;Find strength in your ancestors. Learn, remember, retell their stories so their
-            courage becomes part of your spiritual DNA. Add what you know and add what you learn to
-            FamilySearch.org so others can draw strength from them too. And then turn outward, not
-            inward in adversity.&rdquo;
-          </blockquote>
-          <figcaption>&mdash; Elder Mark A. Bragg</figcaption>
+        <figure class="hero-media reveal">
+          <img src="assets/family-legacy-hero.jpg" width="1536" height="1024" alt="Historic family photographs, a handwritten letter, a pocket watch, and a leather album arranged on an archival table" />
+          <figcaption>A legacy worth discovering, preserving, and sharing.</figcaption>
         </figure>
-        <p class="quote-context reveal">
-          Elder Mark A. Bragg, a leader in The Church of Jesus Christ of Latter-day Saints and
-          executive director of the Family History Department, emphasizes how connecting with our
-          ancestors builds Christlike resilience. Their stories become part of us, providing a
-          foundation for facing our own challenges.
-        </p>
       </div>
     </section>
 
-    <!-- Full-width image band -->
-    <section class="image-band" role="img"
-             aria-label="An elder's hand and a child's hand holding an old sepia family photograph together">
-      <div class="image-band-overlay">
-        <p class="image-band-quote reveal">
-          &ldquo;Learn, remember, retell their stories so their courage becomes part of your spiritual DNA.&rdquo;
-        </p>
+    <section class="story-intro" aria-labelledby="story-heading">
+      <div class="container story-intro-inner reveal">
+        <p class="section-kicker">A gift to the future</p><h2 id="story-heading">Every family has a beginning.</h2>
+        <p>Imagine your grandchildren being able to hear your stories, see restored family photographs, discover where your family came from, and understand the people who came before them.</p>
+        <p class="script-line">That is the gift of preserving your family&rsquo;s history.</p>
       </div>
     </section>
 
-    <!-- Why It Matters / Benefits -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-head reveal"><p class="section-kicker">Coming Soon</p><h2 id="services-heading">Ways we&rsquo;ll help you preserve your legacy</h2><p>Practical, personal support for every part of your family-history journey.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon" aria-hidden="true">&#9673;</div><h3>Research Your Family History</h3><p>Trace your family tree and uncover the records that bring your ancestors&rsquo; lives into focus.</p><ul><li>Family-tree research</li><li>Historical and census records</li><li>Immigration records</li></ul></article>
+          <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon" aria-hidden="true">&#9635;</div><h3>Preserve Precious Memories</h3><p>Protect the photographs, documents, and keepsakes that carry your family&rsquo;s memories.</p><ul><li>Photo and document scanning</li><li>Photo restoration</li><li>Digital heirloom preservation</li></ul></article>
+          <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon" aria-hidden="true">&#9998;</div><h3>Capture Family Stories</h3><p>Turn voices and memories into lasting stories before important details are lost.</p><ul><li>Family interview guidance</li><li>Personal biography writing</li><li>Recorded memory projects</li></ul></article>
+          <article class="service-card reveal"><span class="service-number">04</span><div class="service-icon" aria-hidden="true">&#9827;</div><h3>Create Beautiful Family Trees</h3><p>See the generations at a glance with keepsakes designed to be shared and displayed.</p><ul><li>Custom-designed family trees</li><li>Printable keepsakes</li><li>Digital family archives</li></ul></article>
+          <article class="service-card service-card-featured reveal"><span class="service-number">05</span><div class="service-icon" aria-hidden="true">&#9783;</div><h3>Learn Together</h3><p>Build the skills and confidence to explore, preserve, and share your family history.</p><ul><li>Online, self-paced courses</li><li>Hands-on lessons for all ages</li><li>New courses added over time</li></ul></article>
+        </div>
+        <div class="coming-callout reveal"><p><strong>These offerings are on the way.</strong> Join our list and we&rsquo;ll let you know as each new resource becomes available.</p><a class="link-arrow" href="#join">Keep me updated &rarr;</a></div>
+      </div>
+    </section>
+
+    <section class="preserve-feature" aria-labelledby="preserve-heading">
+      <div class="container preserve-inner">
+        <div class="preserve-media reveal"><img src="assets/preserve-family-memories.jpg" width="1536" height="1024" loading="lazy" alt="Archival-gloved hands carefully placing an old family photograph into a preservation album" /></div>
+        <div class="preserve-copy reveal"><p class="section-kicker">Preserve today. Cherish forever.</p><h2 id="preserve-heading">Your family&rsquo;s memories deserve more than a box in the closet.</h2><p>Old photographs fade. Documents become fragile. The small details of a beloved story can disappear in a generation. We&rsquo;re developing approachable ways to help you organize, protect, and share what matters most.</p><blockquote>&ldquo;It&rsquo;s the stories, sacrifices, traditions, and memories that connect generations.&rdquo;</blockquote></div>
+      </div>
+    </section>
+
     <section class="why" id="why" aria-labelledby="why-heading">
       <div class="container">
-        <div class="section-head reveal">
-          <h2 id="why-heading">The Power of Ancestral Connections</h2>
-          <p>Research consistently shows that knowledge of family history enhances personal well-being.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">&#9733;</div>
-            <h3>Higher Self-Esteem</h3>
-            <p>
-              Studies from Emory University and BYU show that children and young adults who know
-              their family stories have significantly higher self-esteem.
-            </p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">&#10022;</div>
-            <h3>Greater Resilience</h3>
-            <p>
-              Family narratives help moderate stress and build emotional strength, making
-              individuals better equipped to handle adversity.
-            </p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon" aria-hidden="true">&#10047;</div>
-            <h3>Improved Well-Being</h3>
-            <p>
-              Reduced anxiety (up to 20% in one study) and a stronger sense of identity and
-              control over one&rsquo;s life.
-            </p>
-          </article>
+        <div class="section-head reveal"><p class="section-kicker">Why it matters</p><h2 id="why-heading">Your family&rsquo;s history is more than names and dates.</h2><p>Knowing where we come from can strengthen identity, resilience, and the bonds between generations.</p></div>
+        <div class="benefit-grid">
+          <article class="benefit-card reveal"><span aria-hidden="true">&#9829;</span><h3>Hear</h3><p>Keep familiar voices and favorite stories close.</p></article>
+          <article class="benefit-card reveal"><span aria-hidden="true">&#9678;</span><h3>See</h3><p>Give treasured photographs and documents new life.</p></article>
+          <article class="benefit-card reveal"><span aria-hidden="true">&#10022;</span><h3>Discover</h3><p>Learn where your family came from and what shaped them.</p></article>
+          <article class="benefit-card reveal"><span aria-hidden="true">&#128214;</span><h3>Understand</h3><p>Connect with the people whose lives became part of yours.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- Research / Inspiring Words -->
-    <section class="research" id="research" aria-labelledby="research-heading">
-      <div class="container research-inner reveal">
-        <h2 id="research-heading" class="section-kicker light">Inspiring Words on Ancestral Wisdom</h2>
-        <blockquote class="research-quote">
-          &ldquo;The more children knew about their family&rsquo;s history, the stronger their sense
-          of control over their lives, the higher their self-esteem. The most resilient families
-          pass down stories acknowledging both highs and lows and these &lsquo;oscillating&rsquo;
-          narratives show children that families go through disasters and triumphs, and ultimately
-          bounce back.&rdquo;
-        </blockquote>
-        <p class="research-attrib">
-          Dr. Marshall Duke of Emory University found that a child&rsquo;s knowledge of their family
-          history is the best predictor of their emotional well-being.
-        </p>
+    <section class="courses" id="courses" aria-labelledby="courses-heading">
+      <div class="container">
+        <div class="section-head reveal"><p class="section-kicker light">Lessons &amp; courses for all ages</p><h2 id="courses-heading">A place for every generation to begin</h2><p>Online, self-paced learning designed to meet each family member where they are.</p></div>
+        <div class="audience-grid">
+          <article class="audience-card reveal"><span class="audience-label">Kids</span><span class="audience-icon" aria-hidden="true">&#9733;</span><h3>Bring history to life</h3><p>Fun, hands-on lessons that make family stories memorable.</p></article>
+          <article class="audience-card reveal"><span class="audience-label">Teens</span><span class="audience-icon" aria-hidden="true">&#10022;</span><h3>Build research skills</h3><p>Explore records and uncover a unique family story.</p></article>
+          <article class="audience-card reveal"><span class="audience-label">Adults</span><span class="audience-icon" aria-hidden="true">&#9998;</span><h3>Explore and preserve</h3><p>In-depth courses for organizing discoveries and creating a legacy.</p></article>
+          <article class="audience-card reveal"><span class="audience-label">Seniors</span><span class="audience-icon" aria-hidden="true">&#9829;</span><h3>Share your legacy</h3><p>Capture memories, traditions, and wisdom for the next generation.</p></article>
+        </div>
+        <p class="course-note reveal">Courses are in development. <a href="#join">Join the list for launch updates &rarr;</a></p>
       </div>
     </section>
 
-    <!-- About / My Story -->
     <section class="about" id="about" aria-labelledby="about-heading">
       <div class="container about-inner">
-        <div class="about-media reveal">
-          <img class="about-photo" src="assets/anna-family.jpg"
-               alt="Anna Cronin seated front and center, surrounded by her large family outdoors beneath the trees" />
-          <p class="about-name">Anna Cronin</p>
-          <p class="about-role">Founder &middot; History, Family, and Me &mdash; pictured with her family</p>
-        </div>
-
-        <div class="about-copy reveal">
-          <p class="section-kicker">About the Founder</p>
-          <h2 id="about-heading">My Story</h2>
-          <p>
-            I inherited a great love of family history from my Grandma Emma Adams and have been
-            learning about my ancestors for many years. My love of history, teaching, and family
-            came together a few years ago when I was inspired to teach history <em>backwards</em>&mdash;by
-            helping my students learn about their ancestors and how history changed and affected
-            them and, in turn, the students&rsquo; own lives!
-          </p>
-          <p>
-            As a mother of six, grandmother of 21, and great-grandmother of 4, I want my descendants
-            to understand and love our heritage, our history, and the blessing of family ties!
-          </p>
-          <ul class="about-stats" aria-label="Anna's family">
-            <li><span class="stat-num">6</span><span class="stat-label">Children</span></li>
-            <li><span class="stat-num">21</span><span class="stat-label">Grandchildren</span></li>
-            <li><span class="stat-num">4</span><span class="stat-label">Great-Grandchildren</span></li>
-          </ul>
-        </div>
+        <div class="about-quote reveal"><img src="assets/logo.svg" width="96" height="96" alt="" /><p>&ldquo;I want my descendants to understand and love our heritage, our history, and the blessing of family ties.&rdquo;</p><span>&mdash; Anna Cronin, Founder</span></div>
+        <div class="about-copy reveal"><p class="section-kicker">The heart behind the work</p><h2 id="about-heading">A lifelong love of family history</h2><p>Anna inherited her love of family history from her Grandma Emma Adams. Her passion for history, teaching, and family came together in a simple idea: learn history backwards by discovering how world events shaped our own ancestors&rsquo; lives.</p><p>As a mother of six, grandmother of 21, and great-grandmother of four, Anna is building History, Family, and Me to help families preserve more than records&mdash;to preserve belonging.</p></div>
       </div>
     </section>
 
-    <!-- Coming Soon / Future offerings -->
-    <section class="coming" id="coming-soon" aria-labelledby="coming-heading">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="section-kicker">On the Horizon</p>
-          <h2 id="coming-heading">More Ways to Discover Your Story</h2>
-          <p>
-            We&rsquo;re building a growing library of courses and lessons to guide you and your
-            family every step of the way. Here&rsquo;s a glimpse of what&rsquo;s on the way.
-          </p>
-        </div>
-        <div class="soon-grid">
-          <article class="soon-card reveal">
-            <span class="soon-badge">Coming Soon</span>
-            <div class="soon-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 8l11 5 9-4.09V17h2V8L12 3zM5 13.18v3L12 20l7-3.82v-3L12 17l-7-3.82z"/></svg>
-            </div>
-            <h3>Online Courses</h3>
-            <p>
-              Self-paced courses that walk you through discovering, preserving, and sharing your
-              family history&mdash;from your very first steps to a lasting legacy.
-            </p>
-          </article>
-          <article class="soon-card reveal">
-            <span class="soon-badge">Coming Soon</span>
-            <div class="soon-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21 5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-3.55.35-4.75 1.25v13c1.2-.9 3.05-1.25 4.75-1.25 1.2 0 2.4.15 3.5.5V5zM11.25 5.75C10.05 4.85 8.2 4.5 6.5 4.5 5.3 4.5 4.1 4.65 3 5v14c1.1-.35 2.3-.5 3.5-.5 1.7 0 3.55.35 4.75 1.25V5.75z"/></svg>
-            </div>
-            <h3>Guided Lessons</h3>
-            <p>
-              Bite-sized, story-driven lessons that make learning about your ancestors approachable,
-              meaningful, and joyful for every generation.
-            </p>
-          </article>
-          <article class="soon-card reveal">
-            <span class="soon-badge">Coming Soon</span>
-            <div class="soon-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v3h12V3z"/></svg>
-            </div>
-            <h3>Interactive &amp; Printable Lessons</h3>
-            <p>
-              Hands-on lessons and activities you can complete online or print at home&mdash;perfect
-              for families, classrooms, and gatherings around the table.
-            </p>
-          </article>
-        </div>
-        <p class="soon-note reveal">
-          Want to be the first to know when they launch?
-          <a href="#join">Join our email list &rarr;</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- Resources placeholder (lesson packet) -->
     <section class="resources" id="resources" aria-labelledby="resources-heading">
       <div class="container">
-        <div class="section-head reveal">
-          <h2 id="resources-heading">Lessons and Resources</h2>
-          <p>Guided lessons to help you and your family discover, record, and retell your stories.</p>
-        </div>
-
-        <div class="featured-lesson reveal">
-          <div class="fl-text">
-            <span class="fl-tag">&#11088; Free Interactive Lesson &mdash; Available Now</span>
-            <h3>Lesson 1: Meet Your Family Tree</h3>
-            <p>
-              A fun, hands-on adventure for kids and families. Build your own family tree, listen to
-              a read-aloud story, play a quiz, and earn your <strong>Family Explorer</strong> badge!
-            </p>
-            <a class="btn btn-primary fl-btn" href="lesson.html">Start Lesson 1 &rarr;</a>
-          </div>
-          <div class="fl-art" aria-hidden="true">
-            <svg viewBox="0 0 200 200" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="100" cy="185" rx="46" ry="8" fill="#000" opacity="0.08"/>
-              <path d="M100 40c-38 0-62 26-62 66 0 40 26 74 62 74s62-34 62-74c0-40-24-66-62-66z" fill="#7a2e3b"/>
-              <path d="M100 52c-30 0-50 20-50 52 0 34 22 62 50 62s50-28 50-62c0-32-20-52-50-52z" fill="#9c4453"/>
-              <path d="M62 62c-10-10-8-26-8-26s16 2 24 14z" fill="#7a2e3b"/>
-              <path d="M138 62c10-10 8-26 8-26s-16 2-24 14z" fill="#7a2e3b"/>
-              <circle cx="78" cy="96" r="26" fill="#fff"/><circle cx="122" cy="96" r="26" fill="#fff"/>
-              <circle cx="80" cy="98" r="12" fill="#1f2a44"/><circle cx="120" cy="98" r="12" fill="#1f2a44"/>
-              <circle cx="84" cy="94" r="4" fill="#fff"/><circle cx="124" cy="94" r="4" fill="#fff"/>
-              <path d="M100 108l-10 14h20z" fill="#f4c430"/>
-              <path d="M70 150c8 8 42 8 60 0" fill="none" stroke="#7a2e3b" stroke-width="5" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="resources-grid reveal">
-          <article class="resource-card is-coming">
-            <span class="resource-tag">Coming Soon</span>
-            <h3>Lesson Packet</h3>
-            <p>
-              A hands-on packet to guide your family history journey&mdash;step by step. Available
-              here soon as a free download.
-            </p>
-            <a class="link-arrow muted" aria-disabled="true">Download coming soon</a>
-          </article>
-          <article class="resource-card">
-            <span class="resource-tag alt">Free Tool</span>
-            <h3>FamilySearch.org</h3>
-            <p>
-              Add what you know and discover what others have preserved. Build your family tree and
-              draw strength from those who came before.
-            </p>
-            <a class="link-arrow" href="https://www.familysearch.org" target="_blank" rel="noopener">Visit FamilySearch &rarr;</a>
-          </article>
+        <div class="section-head reveal"><p class="section-kicker">Begin today</p><h2 id="resources-heading">One lesson is already waiting</h2><p>While new services and courses are being created, take the first step with a free family lesson.</p></div>
+        <div class="resource-grid">
+          <article class="resource-card resource-featured reveal"><span class="resource-tag">Free interactive lesson</span><h3>Lesson 1: Meet Your Family Tree</h3><p>A fun, hands-on adventure for kids and families. Build a family tree, enjoy a read-aloud story, play a quiz, and earn a Family Explorer badge.</p><a class="btn btn-primary" href="lesson.html">Start Lesson 1</a></article>
+          <article class="resource-card reveal"><span class="resource-tag alt">Free research tool</span><h3>FamilySearch.org</h3><p>Add what you know, discover what others have preserved, and begin building your family tree.</p><a class="link-arrow" href="https://www.familysearch.org" target="_blank" rel="noopener">Visit FamilySearch &rarr;</a></article>
         </div>
       </div>
     </section>
 
-    <!-- Start Your Journey / CTA -->
-    <section class="cta" id="start" aria-labelledby="cta-heading">
-      <div class="container cta-inner reveal">
-        <h2 id="cta-heading">Start Your Journey Today</h2>
-        <p>
-          Join us as we jump into history to find those that went before us and, along the way,
-          learn how history shaped their lives and, in turn, touches ours! As you share the stories
-          you discover, you not only honor the past but build a stronger future for yourself and
-          generations to come.
-        </p>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="#join">Join Our Email List</a>
-          <a class="btn btn-ghost-dark" href="https://www.familysearch.org" target="_blank" rel="noopener">Explore FamilySearch</a>
-        </div>
-      </div>
-    </section>
+    <section class="legacy-cta" aria-labelledby="legacy-heading"><div class="container legacy-inner reveal"><p class="section-kicker light">Leave a legacy that lasts forever</p><h2 id="legacy-heading">Don&rsquo;t let those stories disappear.</h2><p>Be the first to hear when new family-history services, lessons, and courses become available.</p><a class="btn btn-light" href="#join">Start Your Family Legacy</a></div></section>
 
-    <!-- Join the email list -->
     <section class="join" id="join" aria-labelledby="join-heading">
       <div class="container join-inner reveal">
-        <div class="join-copy">
-          <p class="section-kicker">Stay Connected</p>
-          <h2 id="join-heading">Join Our Email List</h2>
-          <p>
-            Be the first to hear when new lessons, courses, and printable activities launch&mdash;plus
-            occasional stories and tips for your own family history journey.
-          </p>
-        </div>
+        <div class="join-copy"><p class="section-kicker">Stay connected</p><h2 id="join-heading">Be first to know what&rsquo;s coming</h2><p>Get launch updates, new lessons, and practical ideas for preserving your family&rsquo;s story.</p></div>
         <form id="joinForm" class="join-form" novalidate>
-          <label class="sr-only" for="joinName">Your name</label>
-          <input id="joinName" type="text" name="name" placeholder="Your name" autocomplete="name" maxlength="80" />
-          <label class="sr-only" for="joinEmail">Your email address</label>
-          <input id="joinEmail" type="email" name="email" placeholder="Your email address" autocomplete="email" required maxlength="120" />
+          <label class="sr-only" for="joinName">Your name</label><input id="joinName" type="text" name="name" placeholder="Your name" autocomplete="name" maxlength="80" />
+          <label class="sr-only" for="joinEmail">Your email address</label><input id="joinEmail" type="email" name="email" placeholder="Your email address" autocomplete="email" required maxlength="120" />
           <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button class="btn btn-primary join-btn" type="submit">Join the List</button>
-          <p class="join-msg" id="joinMsg" role="status" aria-live="polite"></p>
-          <p class="join-privacy">No spam, ever &mdash; just family history goodness. Unsubscribe anytime.</p>
+          <button class="btn btn-primary join-btn" type="submit">Join the List</button><p class="join-msg" id="joinMsg" role="status" aria-live="polite"></p><p class="join-privacy">No spam&mdash;just family-history goodness. Unsubscribe anytime.</p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer" id="contact">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="footer-brand-top">
-          <svg class="footer-mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="hfmGoldB" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#e6c98a"/>
-                <stop offset="1" stop-color="#c08a2d"/>
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="30" fill="#faf6ef" stroke="url(#hfmGoldB)" stroke-width="2.5"/>
-            <circle cx="32" cy="32" r="25.5" fill="none" stroke="#c08a2d" stroke-width="1" opacity="0.45"/>
-            <g fill="none" stroke="#7a2e3b" stroke-width="1.8" stroke-linecap="round">
-              <path d="M32 40 L32 27"/>
-              <path d="M32 28 C 27 25, 23 23, 19 19"/>
-              <path d="M32 28 C 37 25, 41 23, 45 19"/>
-              <path d="M32 27 C 29 22, 27 19, 25 14"/>
-              <path d="M32 27 C 35 22, 37 19, 39 14"/>
-              <path d="M32 27 L32 12"/>
-              <path d="M32 40 C 27 44, 23 46, 19 50"/>
-              <path d="M32 40 C 37 44, 41 46, 45 50"/>
-              <path d="M32 40 C 29 45, 27 49, 26 53"/>
-              <path d="M32 40 C 35 45, 37 49, 38 53"/>
-              <path d="M32 40 L32 52"/>
-            </g>
-            <g fill="url(#hfmGoldB)">
-              <circle cx="32" cy="11" r="2.4"/>
-              <circle cx="19" cy="18.5" r="2.2"/>
-              <circle cx="45" cy="18.5" r="2.2"/>
-              <circle cx="24.5" cy="13.5" r="2"/>
-              <circle cx="39.5" cy="13.5" r="2"/>
-            </g>
-            <path d="M32 33.4c-1.6-1.5-4-2.7-4-4.9a2.1 2.1 0 0 1 4-.9 2.1 2.1 0 0 1 4 .9c0 2.2-2.4 3.4-4 4.9z" fill="#7a2e3b"/>
-          </svg>
-          <span class="brand-name">History, Family, <span class="amp">and</span> Me</span>
-        </span>
-        <p class="footer-tag">Courage, Strength, and Resilience from those who came before!</p>
-      </div>
-      <div class="footer-contact">
-        <p>Have questions or want to connect?</p>
-        <a class="footer-email" href="mailto:historyfamilyandme@outlook.com">historyfamilyandme@outlook.com</a>
-        <a class="footer-phone" href="tel:+14802834261">(480) 283-4261</a>
-      </div>
+      <div class="footer-brand"><span class="footer-brand-top"><img src="assets/logo.svg" width="42" height="42" alt="" /><span class="brand-name">History, Family, <span class="amp">and</span> Me</span></span><p>Preserving your family&rsquo;s story for generations.</p></div>
+      <div class="footer-contact"><p>Have questions or want to connect?</p><a href="mailto:historyfamilyandme@outlook.com">historyfamilyandme@outlook.com</a><a href="tel:+14802834261">(480) 283-4261</a></div>
     </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> History, Family, and Me. All rights reserved.</p>
-    </div>
+    <div class="container footer-bottom"><p>&copy; <span id="year"></span> History, Family, and Me. All rights reserved.</p></div>
   </footer>
-
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
