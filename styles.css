@@ -87,7 +87,9 @@ img { display: block; max-width: 100%; height: auto; }
 .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .service-card:nth-child(4) { grid-column: 2 / span 2; }
 .service-number { position: absolute; top: 1rem; right: 1.25rem; color: rgba(177,123,37,.18); font: 700 2.4rem var(--serif); }
-.service-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 1rem; border-radius: 50%; color: var(--gold); background: var(--cream-2); font-size: 1.4rem; }
+.service-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 1rem; border-radius: 50%; color: var(--gold); background: var(--cream-2); }
+.service-icon svg { width: 23px; height: 23px; }
+.service-card-featured .service-icon { color: var(--gold-soft); background: rgba(255,255,255,.1); }
 .service-card h3 { padding-right: 2rem; font-size: 1.65rem; }
 .service-card p, .service-card li { color: var(--ink-soft); }
 .service-card ul { padding: 1rem 0 0; margin: 1rem 0 0; border-top: 1px solid var(--line); list-style: none; }
@@ -117,6 +119,11 @@ img { display: block; max-width: 100%; height: auto; }
 .benefit-card > span { display: block; margin-bottom: .65rem; color: var(--burgundy); font-size: 1.65rem; }
 .benefit-card h3 { font-size: 1.55rem; }
 .benefit-card p { margin: 0; color: var(--ink-soft); }
+
+.image-band { display: grid; place-items: center; min-height: clamp(300px, 42vw, 440px); background-image: linear-gradient(180deg, rgba(16,47,39,.4), rgba(16,47,39,.6)), url("assets/generations.jpg"); background-size: cover; background-position: center 35%; }
+.image-band-overlay { width: min(100% - 2.5rem, 860px); text-align: center; }
+.image-band-quote { margin: 0; color: #fff; font: italic 600 clamp(1.6rem, 3.6vw, 2.5rem) var(--serif); line-height: 1.35; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+.image-band-quote em { color: var(--gold-soft); }
 
 .courses { padding: clamp(4.5rem, 8vw, 7rem) 0; color: #fff; background: var(--green); }
 .courses .section-head > p:last-child { color: rgba(255,255,255,.75); }
